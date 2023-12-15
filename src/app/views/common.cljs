@@ -29,7 +29,7 @@
                   "tracking-tighter"]}
      "클로져 맛보기"]]
    [:div {:class ["flex" "flex-row" "items-center" "justify-around"]}
-    [:a {:href "https://github.com/lispkorea/tryclojure" :target "_blank"}
+    [:a {:href "https://github.com/lispkorea/tryclojure-kr" :target "_blank"}
      [:svg {:class ["text-gray-500"
                     "dark:text-white"
                     "text-opacity-50"
