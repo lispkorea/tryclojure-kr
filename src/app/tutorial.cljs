@@ -7,190 +7,199 @@
   "Collection of map steps."
   [;; Strings
    {:title
-    "Hello string!"
+    "안녕 문자열!"
     :content
-    "> Learn the principle, abide by the principle, and dissolve the principle. - Bruce Lee
+    "> 원칙을 배우고, 원칙을 따르고, 원칙을 없애라. - 브루스 리
      
-  Let's start with the basic. Clojure offers the most common data types, like integers,
-     booleans and strings. Strings are surrounded by `\"`.
+  기본부터 시작해봅시다. 클로져는 정수, 부울린, 문자열과 같은 가장 기본이 되는 타입들을 제공합니다. 문자열은 `\"`로 감쌉니다.
     
-  Try creating a string saying *hello* to the *world*, as `\"Hello World\"`"
-    :test #(= (string/lower-case %) "hello world")}
+   *누리*에게 *안녕*이란 인삿말 문자열을 만들어 보세요`\"누리야 안녕\"`"
+    :test #(= (string/lower-case %) "누리야 안녕")}
+
    ;; Lists
-   {:title "Embrace the lists"
+   {:title "리스트를 이해하자"
     :content
-    "> Lisp is the greatest single programming language ever designed - Alan Kay
-    
-  Lisp stands for *LISt Processing* and its peculiarity is that code is written in [lists](https://en.wikipedia.org/wiki/S-expression). Clojure is a Lisp dialect so it uses a similar syntax.
+    "> 리스프는 역사상 가장 위대한 프로그래밍 언어이다. - 앨런 케이
+     
+   리스프는 *리스트 프로세싱*을 나타내며,  특이점으로는 [리스트](https://en.wikipedia.org/wiki/S-expression)로 코드를 작성한다는 것입니다. 클로져는 리스프의 한 종류이기 때문에 비슷한 문법을 사용합니다.
+     
+   리스트는 `(1 2 3)` 처럼 아이템들의 모음입니다.
+    클로져에선 `list` 를 이용하거나, `'` 를 앞에붙여 리스트를 만들 수 있습니다.
 
-  A list is a collection of items as `(1 2 3)`. In Clojure you can
-     create lists using `list` or prepending `'`.
-
-  Create a list of elements for example `(list 1 2 3)` or `'(1 2 3)`."
+   이제 리스트를 만들어 봅시다. 예로 `(list 1 2 3)` 혹은 `'(1 2 3)`."
     :test #(list? %)}
-   ;; Math
-   {:title "Math is (fun)"
-    :content
-    "In Clojure mathematical operators are like normal functions. 
-     As you already know, you have to include them in parentheses `(...)`.
-  
-  So instead of `4 + 2` you will do `(+ 4 2)`. Try to type a numerical operation with `+-/*`."
-    :test #(number? %)}
-   ;; Functions
-   {:title "Clojure is functional"
-    :content
-    "> Lisp is functional. And the future is looking very functional to me. - Robert C. Martin
-  
-  The first argument of a list needs to be a **function**. The *rest*, 
-     are the arguments to that function. In the expression `(not true)`,
-     *not* is the negation function and *true* is the argument. 
-     
-  Try to use the function `(my-name)` followed by your name as a \"string\", as `(my-name \"Elia\")`."
-    :test #(and (map? %) (contains? % :user-name) (string? (:user-name %)))}
-   ;; Keywords
-   {:title "Don't forget the keys"
-    :content
-    "> These days, the problem isn't how to innovate; it's how to get society to adopt the good ideas that already exist. - Douglas Engelbart
-     
-  Hi there, **[[user-name]]**! Nice to meet you.
-    
-  In the REPL you are getting back the evaluation of the expression that you typed.
-    As you can see, `:user-name` is in a special form; it's called a *keyword*.
-    You have to prepend `:` to a word to create one. 
-     
-  Use the keyword `:next` to continue."
-    :test #(= % :next)}
-   ;; Exercise - 01
-   {:title "A function for everything"
-    :content
-    "Let's tweak our interface!
-     
-  You already know how to invoke functions, how to use keywords and strings.
-     What if I tell you that you can change the prompt?
 
-  You can call functions with keywords parameters, as `(create-dog :name \"Zeus\" :breed \"Beagle\")`
+   ;; Math
+   {:title "수학은 (즐거움)"
+    :content
+    "클로져에서 수학 연산자들은 일반 함수들과 같습니다.
+   아시다시피, 괄호 `(...)` 안에 넣어야 합니다.
+  
+  따라서, `4 + 2`대신에 `(+ 4 2)`라고 해야합니다. `+ - / *`를 이용해서 사칙연산을 수행해 보세요." 
+    :test #(number? %)}
+
+   ;; Functions
+   {:title "클로져는 함수형입니다"
+    :content
+    "> 리스프는 함수형입니다. 그리고 함수형이 미래로 보입니다. - 로버트 C. 마틴
+  
+  리스트의 첫번째 인자는 **함수**이며, *나머지*는 함수의 인자들입니다.
+     `(not true)`에서 *not*은 부정 함수이고, *true*는 인자입니다.
+
+   `(내-이름 \"길동\")`와 같이, 여러분의 이름을 \"문자열\" 인자로 넣어 함수 `(내-이름)`을 사용해보세요."
+    :test #(and (map? %) (contains? % :내-이름) (string? (:내-이름 %)))}
+
+   ;; Keywords
+   {:title "키를 까먹지 마세요"
+    :content
+    "> 요즘날의 문제는 어떻게 혁신할 것인가가 아니다; 이미 존재하는 좋은 아이디어를 어떻게 사회가 받아들일 것인가이다. - 더글러스 엔겔바트
      
-  Use the function `(set-prompt)` and set a color. It accepts optionally `:color` and `:text` as strings. 
-     Or click on `(set-prompt :color \"red\")`"
+  안녕하세요 **[[내-이름]]**씨! 만나서 반갑습니다.
+    
+  REPL에서 여러분이 입력한 표현식의 평가 결과얻어 왔습니다.
+    여기서, `:내-이름`은 특별한 폼(form)으로, *키워드*라고 합니다.
+    키워드를 만들고 싶으면 만들고 싶은 단어 앞에 `:`를 붙여야 합니다.
+     
+  `:다음`이라는 키워드를 이용해서 계속나아가세요."
+    :test #(= % :다음)}
+
+  ;; Exercise - 01
+   {:title "모든것을 위한 함수"
+    :content
+    "인터페이스를 고쳐봅시다!
+     
+  이제 어떻게 함수를 호출하는지, 키워드와 문자열을 어떻게 사용하는지 알고 있습니다.
+     이제 프롬프트를 변경해본다면 어떨까요?
+
+  `(만들기-개 :이름 \"제우스\" :종 \"비글\")`와 같이 여러분은 키워드 파라미터를 이용해서 함수를 호출할 수 있습니다. 
+
+  `(프롬프트-설정)` 함수를 이용해서 색깔을 바꿔보세요. `:색`와 `:모양`를 이용하여 문자열로 넣을 수 있습니다.
+     잘 안되겠으면 `(프롬프트-설정 :색 \"red\")`를 클릭하세요"
     :test #(contains? % :prompt-color)}
    ;; 
-   {:title "Functional practicioner!"
+   {:title "함수형 견습생!"
     :content
-    "Congratulations, you have called a function and changed the state of the application! 
-     And the entire command was… a list!
+    "축하합니다. 함수를 호출하여 애플리케이션의 상태를 변경했습니다!
+     그리고 모든 명령어들은 리스트로 이루어져 있었습니다!
                                                                                      
-  Clojure offers multiple functions to work with lists, such as `reverse`. It reverses a collection.
-     So if you pass a string, it will use it as a collection of characters.
+  클로져는 `reverse`와 같이 리스트를 다루는 여러 함수들을 제공합니다. 이 함수는 컬렉션을 뒤집어 줍니다.
+     따라서, 문자열을 넣으면 문자들이 들어있는 컬렉션으로 인식하게 됩니다.
      
-  Type `(reverse \"a-long-string\")` to advance at the next step."
-    :test #(= % (reverse "a-long-string"))}
+  `(reverse \"기나긴 문자열\")`을 입력하여 다음 단계로 나아가 봅시다."
+    :test #(= % (reverse "기나긴 문자열"))}
+   
    ;; Vectors
-   {:title "We have vectors"
+   {:title "벡터를 가지게 되었습니다"
     :content
-    "> Lisp is worth learning for the profound enlightenment experience you will have when you finally get it. - Eric Raymond
+    "> 리스프를 배움으로써 얻게될 심오한 깨달음의 경험 때문이라도 리스프는 배울 가치가 있다. - 에릭 레이먼드
      
-  **Vectors** (aka arrays) contain sequential elements and they have a faster access compared to lists.
+  **벡터**는 연속된 엘리먼트로 구성되어있으며, 리스트보다 빠른 접근이 가능합니다.
      
-  To create a vector you need to include the items into squared brackets `[]` without any separator.
+  벡터를 만들기 위해서는 사각 괄호 `[ ]` 안에 구분자 없이 아이템들을 넣어야 합니다.
      
-  Create a vector of elements, like your favorite names for cats `[\"luna\" \"milu\" \"boris\"]`. "
+  `[\"레오\" \"나비\" \"땅콩\"]`과 같이 여러분이 좋아하는 고양이 이름들이 들어있는 벡터를 만들어 봅시다."
     :test #(vector? %)}
    ;; Variables
-   {:title "Def your variables"
+   {:title "변수를 Def 하라"
     :content
-    "> Good programmers don't just write programs. They build a working vocabulary. - Guy Steele
+    "> 좋은 프로그래머는 프로그램만 작성하지는 않습니다. 작업에 필요한 어휘도 구축합니다. - 가이 스틸
                                                                                      
-  **Global** variables are defined using `def`. Their value could be anything.
+  `def`를 이용하여 **전역** 변수를 정의합니다. 그 변수는 어떠한 것도 될 수 있습니다.
      
-  Create a global variable called `foo` with a value. E.g. `(def foo \"bar\")`"
-    :test #(and (instance? SciVar %) (= "foo" (-> (.-meta %) :name str)))}
+  `수리수리`라는 이름의 전역 변수를 만들어 보세요. 예) `(def 수리수리 \"마수리\")`"
+    :test #(and (instance? SciVar %) (= "수리수리" (-> (.-meta %) :name str)))}
+   
    ;; Let
    {:title "Let it be local"
     :content
-    "> Lisp is so great not because of some magic quality visible only to devotees, but because it is simply the most powerful language available. - Paul Graham
+    "> 리스프는 광신도들에게만 보이는 마법과도 같은거라서 위대한것이 아니라, 그냥 그게 가장 강력한 언어이기 때문에 위대하다. - 폴 그레이엄
      
-  **Local** variables could be defined using `let`. They will be available only
-     inside the lexical context of the `let`. In the expression `(let [x 1] x)`
-     you can refer to x only inside the `body` part delimited by `()`.
+  **지역**변수는 `let`을 이용하여 정의할 수 있습니다.
+   `let`의 어휘적 영역(lexical context)안에서만 유효합니다.
+   `(let [x 1] x)`의 표현식에서, `x`를 참조하고 싶다면 `( )`로 둘러싸인 `영역`에서만 할 수 있습니다.
      
-  Create numeric variables and multiply them like `(let [a 2 b 3] (* a b))`."
+  `(let [a 2 b 3] (* a b))`와 같이, 숫자 변수를 만들고 곱해보세요."
     :test #(number? %)}
    ;; Maps
-   {:title "Maps are dictionaries"
+   {:title "맵(Map)은 사전(dictionary))"
     :content
-    "> Any fool can write code that a computer can understand. Good programmers write code that humans can understand. - Martin Fowler
+    "> 컴퓨터가 이해할 수 있는 코드를 작성하는건 어떠한 바보라도 할 수 있다. 좋은 프로그래머는 사람이 이해할 수 있는 코드를 작성한다. - 마틴 파울러
      
-  Maps are collections that map *keys* to *values*. They're wrapped into `{}`. 
-     You can use everything as a key but Clojure programmers mostly use keywords.
-     
-  Create a map with a key `:country` and your country as a string. 
-     Like `{:country \"Australia\"}`."
-    :test #(and (map? %) (contains? % :country) (string? (:country %)))}
+  맵은 *키*와 *값*을 매핑하는 컬렉션입니다. `{ }`로 감싸져 있습니다.
+     키로 아무거나 사용할 수 있지만, 클로져 프로그래머들은 주로 키워드를 이용합니다.
+
+  `{:국가 \"한국\"}`와 같이 `:국가`를 키로 하고, 가고싶은 국가를 문자열로 하는 맵을 만들어 보세요."
+    :test #(and (map? %) (contains? % :국가) (string? (:국가 %)))}
+   
    ;; F-list
-   {:title "First of list"
+   {:title "리스트의 처음(First)"
     :content
-    "Clojure offers some functions to extract content from the list. For example, 
-     `first` returns the first element.
-     
-  Type `(first '(\"alpha\" \"bravo\" \"charlie\"))` to get the first element."
-    :test #(and (string? %) (= "alpha" %))}
+    "클로져는 리스트에서 값을 추출하기 위한 몇가지 함수를 제공합니다. 예를 들어, `first`는 첫번째 요소를 반환합니다.
+
+  `(first '(\"한놈\" \"두시기\" \"석삼\" \"너구리\" \"오징어\"))`를 입력해서 첫번째 요소를 얻어보세요."
+    :test #(and (string? %) (= "한놈" %))}
+   
    ;; Range
-   {:title "Range of N"
+   {:title "N의 범위(Range)"
     :content
-    "The Clojure function `range` creates a list of numbers from 0 to `n` (excluded). 
-     So `(range 5)` will return numbers from 0 to 4. Use `(doc range)` to print
-    the documentation. 
+    "클로져 함수 `range`는 0부터 `n`하나 전까지의 숫자 리스트를 만듭니다. 
+     즉, `(range 5)`는 0부터 4까지의 숫자를 반환합니다. `(doc range)`를 입력해서 문서를 확인해보세요.
      
-  Create a range from 0 to 99 or click on `(range 100)` :)."
+  0부터 99까지의 범위를 구해보세요. 타이핑이 귀찮으시다면 `(range 100)`를 클릭하세요 ^^"
     :test #(= % (range 100))}
+   
    ;; Filter
-   {:title "Filter a list"
+   {:title "필터(Filter) 리스트"
     :content
-    "We can apply functions to a list. For example, using `filter` we can remove
-     all the elements that are not respecting our condition.
+    "리스트에 함수를 적용할 수 있습니다. 예를 들어, `filter`를 이용해서 조건에 맞는 요소들만 추릴 수 있습니다.
      
-  Try to remove all the *even* numbers from 0 to 50. Psst, `(filter odd? (range 50))`"
+  0부터 50까지의 숫자에서 *짝수*만 제거해보세요.
+  `odd?`는 홀수인지 판별하는 함수입니다. `even?`는 짝수인지 판별하는 함수입니다.
+  타이핑이 귀찮으시다면, `(filter odd? (range 50))`를 클릭하세요 ^^"
     :test #(= % (filter odd? (range 50)))}
+   
    ;; Map
-   {:title "Apply functions on lists"
+   {:title "리스트에 함수 적용시키기"
     :content
-    "If we want a list of multiples of 11 less than 100, the process to find them
-     is to take each number from 1 to 9, multiply it by 10 and add it to the number, as
-     `5 * 10 + 5 = 55`. We can do the same thing with Clojure using `map`.
+    "100보다 작고 11의 배수인 숫자들을 찾기 위해서는, `5 * 10 + 5 = 55`와 같이 1부터 9까지의 각각의 숫자에 10을 곱하고, 숫자를 더하면 됩니다.
+      클로져에서는 `map`을 이용해서 위와 같은 작업을 할 수 있습니다.
 
-  `map` simply applies a function to every element of a list. 
-     
-  So use `(map (fn [n] (+ n (* n 10))) (range 1 10))` to do it."
+  `map`는 리스트의 모든 요소에 함수를 적용합니다.
+
+  한번 `(map (fn [n] (+ n (* n 10))) (range 1 10))`를 이용해서 작업을 완료해보세요."
     :test #(= % (map (fn [n] (+ n (* n 10))) (range 1 10)))}
+   
     ;; Inline functions
-    {:title "Inline functions"
-     :content
-     "In the previous step, we wrote an inline function and passed it as argument
-      to `map`. I'm referring to `(fn [n] (+ n (* n 10)))`. This technique is useful to create
-      functions as *generic utilities* and not write them for a specific use case.
-      
-  Now create a function that takes `l` and `b` and returns the perimeter of a rectangle:
-      
-  `(fn [l b] (* (+ l b) 2))`."
-     :test #(= (apply % [2 3]) 10)}
-   ;; REPL
-   {:title "REPL driven development"
+   {:title "인라인 함수"
     :content
-    "> The only way to learn a new programming language is by writing programs in it. - Kernighan and Ritchie
+    "이전 단계에서 이미, `map`에 인라인 함수 `(fn [n] (+ n (* n 10)))`를 작성하고 인자로 넘겼습니다.
+   이 기법은 목적이 따로 없는 *일반적인 유틸리티* 함수를 만들 때 유용합니다.
      
-  You’re currently solving a list of problems by typing code into the REPL and testing it. 
-     That’s exactly what a Clojurist does! It's faster to test your code while typing than compiling and debugging it later!
-     
-  But Clojure is much more than this. Type `(more)` to go to the last step."
-    :test #(true? %)}
-    {:title "It's time to learn Clojure!"
-     :content
-     "> In the beginner’s mind there are many possibilities, but in the expert’s there are few - Zen Mind, Beginner's Mind
+  `넓이`과 `높이`를 인자로 받아 사각형의 둘레를 반환하는 인라인 함수를 만들어 봅시다:
       
-  Clojure is **not** as difficult as it seems. Parentheses, functions, immutable data structures and the REPL
-      will become your friends. Just keep a beginner's mind!
-      
-  Some good resources to start are [Clojure koans](http://clojurekoans.com/), [4Clojure](https://4clojure.oxal.org/) or [exercism](https://exercism.org/tracks/clojure).
+  `(fn [넓이 높이] (* (+ 넓이 높이) 2))`."
+    :test #(= (apply % [2 3]) 10)}
+   
+   ;; REPL
+   {:title "REPL 주도 개발"
+    :content
+    "> 새로운 프로그래밍 언어를 배우는 유일한 방법은, 그 언어로 프로그램을 작성하는 것이다. - 커니핸(Kernighan) 그리고 리치(Ritchie)
 
-  Ask the community for support, good luck!"
-     :test #(true? false)}])
+   이제까지 REPL에서 코드를 입력하고 테스트하는 방식으로 문제를 해결해 왔습니다.
+     바로 클로져 인들이 하는 것처럼 말이죠! 컴파일하고 나중에 디버깅하는 것보다, 바로바로 코드를 입력하면서 테스트하는 것이 더 빠릅니다!
+
+   이제까지 나왔던 것들보다 클로져로는 더 많을것들을 할 수 있습니다. `(더보기)`를 입력해서 마지막 단계로 가 보도록 하겠습니다."
+    :test #(true? %)}
+
+   {:title "Clojure를 배울 시간이 되었습니다!"
+    :content
+    "> 초심자의 마음에는 많은 가능성이 있지만, 숙련자의 마음에는 거의 없다. - 초심자의 마음, 젠 마인드
+      
+  보신것처럼 클로져는 어렵지 **않습니다**.
+  괄호, 함수, 불변 데이터구조 그리고 REPL이 여러분의 친구가 될 것입니다.
+  초심자의 마음을 잃지 마세요!
+     
+  [Clojure koans](http://clojurekoans.com/), [4Clojure](https://4clojure.oxal.org/) 또는 [exercism](https://exercism.org/tracks/clojure)는 좋은 시작점이 될것입니다.
+
+  필요하다면 [커뮤니티에 도움](https://lispkorea.github.io/help/)을 요청해보세요, 행운을 빕니다!"
+    :test #(true? false)}])

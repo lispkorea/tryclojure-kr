@@ -12,7 +12,7 @@
 ;; Collection of map with the REPL command history.
 (defonce repl-history
   (r/atom [{:type :special
-            :value "Type your Clojure symbolic expressions here"}]))
+            :value "여기에 클로져 표현식을 입력해보세요"}]))
 
 ;; Store the REPL input while typed in the input el
 (defonce repl-input (r/atom nil))
@@ -60,17 +60,17 @@
 (defn print-help
   "Print helper to screen."
   []
-  (let [help-str ["Helper functions:"
+  (let [help-str ["헬퍼 함수들:"
                   ""
-                  "start     - Starts the tutorial"
-                  "restart   - Restarts the tutorial"
-                  "clear     - Clears the entire REPL"
-                  "next-step - Jumps to the next step"
-                  "prev-step - Jumps to the previous step"
+                  "시작      - 튜토리얼을 시작합니다"
+                  "재시작    - 튜토리얼을 다시 시작합니다"
+                  "지우기    - REPL 전체를 지웁니다"
+                  "다음-단계 - 다음 단계로 넘어갑니다"
+                  "이전-단계 - 이전 단계로 돌아갑니다"
                   ""
-                  "Use (doc name) for print the documentation of a function or a var given its name."
+                  "(doc 이름)을 이용해서 주어진 이름의 변수, 함수의 문서를 확인하세요."
                   ""
-                  "Press Ctrl-C to clear the REPL input."]]
+                  "REPL입력을 지우려면 Ctrl-C를 누르세요."]]
     (doseq [s help-str]
       (write-repl! s)))
   nil)
@@ -80,7 +80,7 @@
   []
   (session/set! :tutorial true) ; activate the tutorial
   (session/set! :step 0)
-  "Tutorial started!")
+  "튜토리얼 시작!")
 
 (defn clear-repl
   "Delete all the repl history."
@@ -97,8 +97,8 @@
   "Save user name into the session."
   [s]
   (when (string? s)
-    (session/set! :user-name s)
-    {:user-name s}))
+    (session/set! :내-이름 s)
+    {:내-이름 s}))
 
 (defn set-step
   "Navigate the tutorial to a specific step."
@@ -107,10 +107,10 @@
 
 (defn set-prompt
   "Change the prompt style."
-  [& {:keys [color text]}]
-  (when (string? text)
-    (session/set! :prompt-text text))
-  (when (string? color)
+  [& {:keys [색 모양]}]
+  (when (string? 모양)
+    (session/set! :prompt-text 모양))
+  (when (string? 색)
     (let [;; Required by tailwind to import classes into styles
           valid-colors ["text-amber-400"
                         "text-yellow-400"
@@ -127,13 +127,13 @@
                         "text-pink-400"
                         "text-rose-400"
                         "text-emerald-400"]
-          full-color (str "text-" (string/lower-case color) "-400")
+          full-color (str "text-" (string/lower-case 색) "-400")
           colors ["amber" "yellow" "red" "green" "orange" "slate" "gray" "teal"
                   "lime" "blue" "violet" "purple" "pink" "rose" "emerald"]]
       (if (in? valid-colors full-color)
         (session/set! :prompt-color full-color)
         (str "Invalid color: "
-             color
+             색
              "! Valid colors are: "
              (string/join " " colors)
              ".")))))
@@ -142,16 +142,16 @@
 (sci/set-print-fn (fn [s] (write-repl! s)))
 
 ;; Append the start-tutorial function as 'start
-(sci/extend-ctx {:namespaces {'user {'start start-tutorial
-                                     'clear clear-repl
-                                     'restart restart-tutorial
-                                     'my-name set-name
-                                     'next-step inc-step!
-                                     'prev-step dec-step!
-                                     'set-step (when DEBUG set-step)
-                                     'set-prompt set-prompt
-                                     'more (fn [] true)
-                                     'help print-help}}})
+(sci/extend-ctx {:namespaces {'user {'시작 start-tutorial
+                                     '지우기 clear-repl
+                                     '재시작 restart-tutorial
+                                     '내-이름 set-name
+                                     '다음-단계 inc-step!
+                                     '이전-단계 dec-step!
+                                     '단계-설정 (when DEBUG set-step)
+                                     '프롬프트-설정 set-prompt
+                                     '더보기 (fn [] true)
+                                     '도움 print-help}}})
 
 ;; Add REPL functions like `doc`
 (sci/eval-string "(require '[clojure.repl :refer :all])")

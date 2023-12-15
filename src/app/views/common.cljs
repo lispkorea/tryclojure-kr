@@ -27,9 +27,9 @@
                   "text-slate-700"
                   "dark:text-white"
                   "tracking-tighter"]}
-     "Try Clojure"]]
+     "클로져 맛보기"]]
    [:div {:class ["flex" "flex-row" "items-center" "justify-around"]}
-    [:a {:href "https://github.com/elias94/tryclojure" :target "_blank"}
+    [:a {:href "https://github.com/lispkorea/tryclojure" :target "_blank"}
      [:svg {:class ["text-gray-500"
                     "dark:text-white"
                     "text-opacity-50"
@@ -43,18 +43,27 @@
     (when DEBUG
       [:a {:class ["mx-2" "text-gray-400" "hover:text-white" "underline-none"]
            :href "#/all"}
-       (string/capitalize "all")])]])
+       (string/capitalize "디버그")])]])
 
 (defn footer []
   [:div {:class []}
    [:p {:class ["text-sm" "text-gray-700" "dark:text-gray-500" "text-center"
                 "italic" "mb-4"]}
-    "Created with Clojurescript by "
+    "TryClojure의 원 소스는 "
     [:a {:href "https://www.scotto.me" :target "_blank"}
      "Elia Scotto"]
-    ", thanks to " 
+    "님께서 클로져스크립트로 "
+    [:a {:href "https://github.com/eliascotto/tryclojure" :target "_blank"}
+     "작성"]
+    "하였습니다. "
     [:a {:href "https://github.com/borkdude" :target "_blank"}
      "Michiel Borkent"]
-    " and the amazing Clojure "
+    "과 엄청난 클로져 "
     [:a {:href "https://clojure.org/community/resources" :target "_blank"}
-     "community"] "."]])
+     "커뮤니티"]
+    "에 감사드립니다."]
+   [:p {:class ["text-sm" "text-gray-700" "dark:text-gray-500" "text-center"
+                "italic" "mb-4"]}
+    " 한글화"
+    [:a {:href "https://github.com/netpyoung" :target "_blank"}
+     "netpyoung"]]])

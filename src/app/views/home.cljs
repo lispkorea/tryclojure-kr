@@ -8,17 +8,20 @@
    [app.tutorial :refer [tutorial]]))
 
 (def intro-title
-  "Got 5 minutes?")
+  "잠깐 시간 괜찮으세요?")
 
 (def intro-content
-  "> If you want everything to be familiar, you'll never learn anything new. - Rich Hickey
+  "> 익숙함을 추구한다면, 결코 새로운 것을 배울 수 없을 것이다. - 리치 히키
 
-Let's have some fun! <span id=\"location-of-editor\">Here on the right</span>
-you have a **REPL**, a command line with a _read-eval-print_ loop. Everything
-you write will be evaluated. Try to type some expressions as `(+ 1 2)` or click
-on code to auto insert. You can type `(help)` for more commands.
+자, 한번 놀아봅시다!
+
+<span id=\"location-of-editor\">오른쪽에</span>
+ 여러분이 뭔가 써 넣으면 *읽고(Read) 평가하고(Eval) 출력하길(Print) 반복(Loop)*하는 **REPL**이 있습니다.
+ 
+`(+ 1 2)`을 타이핑하거나, 그냥 코드를 클릭하면 코드가 자동으로 입력됩니다.
+ 더 많은 명령어를 보실려면 `(도움)`을 입력하세요.
    
-Type `(start)` when you're ready!")
+준비가 되셨으면 `(시작)`을 입력하세요!")
 
 (defn compute-step
   "Returns a list of `title` and `content`
@@ -125,7 +128,7 @@ Type `(start)` when you're ready!")
   (let [window-width (. js/window -innerWidth)
         location-of-editor-dom (.getElementById js/document "location-of-editor")]
     (set! (. location-of-editor-dom -innerHTML)
-          (if (< window-width 640) "Down below" "Here on the right"))))
+          (if (< window-width 640) "바로 아래" "바로 오른쪽"))))
 
 (.addEventListener js/window "load" update-location-of-editor)
 (.addEventListener js/window "resize" update-location-of-editor)
