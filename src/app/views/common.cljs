@@ -27,7 +27,7 @@
                   "text-slate-700"
                   "dark:text-white"
                   "tracking-tighter"]}
-     "클로져 맛보기"]]
+     "클로저 맛보기"]]
    [:div {:class ["flex" "flex-row" "items-center" "justify-around"]}
     [:a {:href "https://github.com/lispkorea/tryclojure-kr" :target "_blank"}
      [:svg {:class ["text-gray-500"
@@ -52,13 +52,13 @@
     "TryClojure의 원 소스는 "
     [:a {:href "https://www.scotto.me" :target "_blank"}
      "Elia Scotto"]
-    "님께서 클로져스크립트로 "
+    "님께서 클로저스크립트로 "
     [:a {:href "https://github.com/eliascotto/tryclojure" :target "_blank"}
      "작성"]
     "하였습니다. "
     [:a {:href "https://github.com/borkdude" :target "_blank"}
      "Michiel Borkent"]
-    "과 엄청난 클로져 "
+    "과 엄청난 클로저 "
     [:a {:href "https://clojure.org/community/resources" :target "_blank"}
      "커뮤니티"]
     "에 감사드립니다."]

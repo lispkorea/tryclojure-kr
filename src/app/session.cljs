@@ -3,7 +3,7 @@
   (:require [reagent.core :as r]))
 
 (def initial-db
-  {:내-이름 "젊은 클로져인"})
+  {:내-이름 "젊은 클로저인"})
 
 (defonce session
   (r/atom initial-db))

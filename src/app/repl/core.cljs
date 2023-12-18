@@ -12,7 +12,7 @@
 ;; Collection of map with the REPL command history.
 (defonce repl-history
   (r/atom [{:type :special
-            :value "여기에 클로져 표현식을 입력해보세요"}]))
+            :value "여기에 클로저 표현식을 입력해보세요"}]))
 
 ;; Store the REPL input while typed in the input el
 (defonce repl-input (r/atom nil))
@@ -103,7 +103,7 @@
 (defn set-step
   "Navigate the tutorial to a specific step."
   [step]
-   (session/set! :step step))
+  (session/set! :step step))
 
 (defn set-prompt
   "Change the prompt style."
