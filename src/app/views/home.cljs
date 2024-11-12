@@ -8,20 +8,20 @@
    [app.tutorial :refer [tutorial]]))
 
 (def intro-title
-  "��� �ð� ����������?")
+  "잠깐 시간 괜찮으세요?")
 
 (def intro-content
-  "> �ͼ����� �߱��Ѵٸ�, ���� ���ο� ���� ��� �� ���� ���̴�. - ��ġ ��Ű
+  "> 익숙함을 추구한다면, 결코 새로운 것을 배울 수 없을 것이다. - 리치 히키
 
-��, �ѹ� ��ƺ��ô�!
+자, 한번 놀아봅시다!
 
-<span id=\"location-of-editor\">�����ʿ�</span>
- �������� ���� �� ������ *�а�(Read) ���ϰ�(Eval) ����ϱ�(Print) �ݺ�(Loop)*�ϴ� **REPL**�� �ֽ��ϴ�.
+<span id=\"location-of-editor\">오른쪽에</span>
+ 여러분이 뭔가 써 넣으면 *읽고(Read) 평가하고(Eval) 출력하길(Print) 반복(Loop)*하는 **REPL**이 있습니다.
  
-`(+ 1 2)`�� Ÿ�����ϰų�, �׳� �ڵ带 Ŭ���ϸ� �ڵ尡 �ڵ����� �Էµ˴ϴ�.
- �� ���� ���ɾ ���Ƿ��� `(����)`�� �Է��ϼ���.
+`(+ 1 2)`을 타이핑하거나, 그냥 코드를 클릭하면 코드가 자동으로 입력됩니다.
+ 더 많은 명령어를 보실려면 `(도움)`을 입력하세요.
    
-�غ� �Ǽ����� `(����)`�� �Է��ϼ���!")
+준비가 되셨으면 `(시작)`을 입력하세요!")
 
 (defn compute-step
   "Returns a list of `title` and `content`
@@ -129,7 +129,7 @@
         location-of-editor-dom (.getElementById js/document "location-of-editor")]
     (when location-of-editor-dom
       (set! (. location-of-editor-dom -innerHTML)
-            (if (< window-width 640) "�ٷ� �Ʒ�" "�ٷ� ������")))))
+            (if (< window-width 640) "바로 아래" "바로 오른쪽")))))
 
 (.addEventListener js/window "load" update-location-of-editor)
 (.addEventListener js/window "resize" update-location-of-editor)
